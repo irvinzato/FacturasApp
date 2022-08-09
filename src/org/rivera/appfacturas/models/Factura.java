@@ -1,5 +1,6 @@
 package org.rivera.appfacturas.models;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Factura {
@@ -83,6 +84,30 @@ public class Factura {
       .append(this.description)
       .append("\n")
       .append("\n#\tNombre\t$\tTotal\n");
+
+    SimpleDateFormat df = new SimpleDateFormat("dd 'de' MMMM, yyyy");
+    sb.append("Fecha de Emision: ")
+      .append(df.format(this.date))
+      .append("\n");
+
+    for(ItemFactura item: this.items) {
+      if( item == null ) {
+        continue;
+      }
+      sb.append(item.getProduct().getCode())
+        .append("\t")
+        .append(item.getProduct().getName())
+        .append("\t")
+        .append(item.getProduct().getPrice())
+        .append("\t")
+        .append(item.getAmount())
+        .append("\t")
+        .append(item.calculateAmount())
+        .append("\n");
+    }
+    sb.append("\n Total final: ")
+        .append(calculateTotal());
+
     return sb.toString();
   }
 }
