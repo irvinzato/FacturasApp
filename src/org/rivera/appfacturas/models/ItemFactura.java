@@ -24,4 +24,8 @@ public class ItemFactura {
   public void setProduct(Producto product) {
     this.product = product;
   }
+
+  public double calculateAmount() {
+    return this.amount * this.product.getPrice();
+  }
 }

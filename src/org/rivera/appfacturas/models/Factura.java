@@ -59,4 +59,30 @@ public class Factura {
       this.items[indexItems++] = item;
     }
   }
+
+  public float calculateTotal() {
+    float total = 0.0f;
+    for(ItemFactura item: this.items) {
+      //Si es null la posición es porque sobraron espacios del arreglo, asi que no debo sumar nada, solo continuar
+      if(item == null) {
+        continue;
+      }
+      total += item.calculateAmount();
+    }
+    return total;
+  }
+
+  public String generateDetail() {
+    StringBuilder sb = new StringBuilder("Factura N°: ");
+    sb.append(folio)
+      .append("\nCliente: ")
+      .append(this.client.getName())
+      .append("\tNIF: ")
+      .append(this.client.getNif())
+      .append("\nDescripcion: ")
+      .append(this.description)
+      .append("\n")
+      .append("\n#\tNombre\t$\tTotal\n");
+    return sb.toString();
+  }
 }
