@@ -30,4 +30,11 @@ public class Producto {
   public void setPrice(double price) {
     this.price = price;
   }
+
+  @Override
+  public String toString() {
+    return  this.code +
+            "\t" + this.name +
+            "\t" + this.price;
+  }
 }

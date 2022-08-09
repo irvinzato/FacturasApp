@@ -28,4 +28,11 @@ public class ItemFactura {
   public double calculateAmount() {
     return this.amount * this.product.getPrice();
   }
+
+  @Override
+  public String toString() {
+    return this.product +
+            "\t" + amount +
+            "\t" + calculateAmount();
+  }
 }

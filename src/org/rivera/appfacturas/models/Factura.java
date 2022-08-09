@@ -89,6 +89,7 @@ public class Factura {
       if( item == null ) {
         continue;
       }
+      //También puedo usar los toString para mostrar la información y aquí se vean menos lineás
       sb.append(item.getProduct().getCode())
         .append("\t")
         .append(item.getProduct().getName())
@@ -109,5 +110,10 @@ public class Factura {
             .append("\n");
 
     return sb.toString();
+  }
+
+  @Override
+  public String toString() {
+    return generateDetail();
   }
 }

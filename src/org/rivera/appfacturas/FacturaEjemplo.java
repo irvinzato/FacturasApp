@@ -1,10 +1,5 @@
 package org.rivera.appfacturas;
-
-import org.rivera.appfacturas.models.Cliente;
-import org.rivera.appfacturas.models.Factura;
-import org.rivera.appfacturas.models.ItemFactura;
-import org.rivera.appfacturas.models.Producto;
-
+import org.rivera.appfacturas.models.*;
 import java.util.Scanner;
 
 public class FacturaEjemplo {
@@ -45,6 +40,8 @@ public class FacturaEjemplo {
 
     System.out.println("Detalles generados...");
     System.out.println(invoice.generateDetail());
+    //Otra manera de mostrar y usar el toString
+    //System.out.println(invoice);
 
   }
 }
