@@ -83,12 +83,7 @@ public class Factura {
       .append("\nDescripcion: ")
       .append(this.description)
       .append("\n")
-      .append("\n#\tNombre\t$\tTotal\n");
-
-    SimpleDateFormat df = new SimpleDateFormat("dd 'de' MMMM, yyyy");
-    sb.append("Fecha de Emision: ")
-      .append(df.format(this.date))
-      .append("\n");
+      .append("\n#\tNombre\t$\tCant\tTotal\n");
 
     for(ItemFactura item: this.items) {
       if( item == null ) {
@@ -107,6 +102,11 @@ public class Factura {
     }
     sb.append("\n Total final: ")
         .append(calculateTotal());
+
+    SimpleDateFormat df = new SimpleDateFormat("dd 'de' MMMM, yyyy");
+    sb.append("\nFecha de Emision: ")
+            .append(df.format(this.date))
+            .append("\n");
 
     return sb.toString();
   }
